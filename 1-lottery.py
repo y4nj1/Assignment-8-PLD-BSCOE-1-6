@@ -14,6 +14,26 @@ MAX_PICK = 9
 WINNINGS = 100
 OFFSETT = 4
 
+# 'get_user_nums', gets user numbers and puts into a sorted list    
+def get_user_nums():
+    userNums = []
+    while len(userNums) < NUMBER_OF_PICKS:
+        nums = input("Pick a number {} through {}: ".format(MIN_PICK, MAX_PICK))
+        try:
+            nums = int(nums)
+        except:
+            print("Sorry your input must be an integer!")
+            continue
+        if MIN_PICK <= nums <= MAX_PICK:
+            if nums not in userNums:
+                userNums.append(nums)
+            else:
+                print("Error! You have already picked this number")
+        else:
+            print("Error! Your number was not in range")
+
+    return sorted(userNums)
+
 # 'get_winning_nums', creates a sorted list with random nums ranging from 0-9 with a range of 3 values
 def get_winning_nums():
     return sorted(random.sample(range(MIN_PICK, MAX_PICK), NUMBER_OF_PICKS)) 
