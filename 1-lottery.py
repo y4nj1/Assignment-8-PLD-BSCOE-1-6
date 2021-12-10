@@ -8,11 +8,48 @@
 
 import random
 
-win_d1 = random.randint(0, 9)
-win_d2 = random.randint(0, 9)
-win_d3 = random.randint(0, 9)
-win_c = [win_d1, win_d2, win_d3]
+NUMBER_OF_PICKS = 3
+MIN_PICK = 0
+MAX_PICK = 9
+WINNINGS = 100
+OFFSETT = 4
 
-inp_d1 = int(input("Enter your first number here: "))
-inp_d2 = int(input("Enter your second number here: "))
-inp_d3 = int(input("Enter your third number here: "))
+
+# 'menu', creates the main menu to choose game or exit program
+def lottery_menu():
+    name = ' '*int(OFFSETT/2) + "LOTTERY MENU"
+    dotted = (OFFSETT+len(name))*'-'
+    options = ["[Play Pick {}]".format(NUMBER_OF_PICKS), 
+               "[Exit]"]
+    print('{} \n{} \n{}'.format(dotted, name, dotted))
+    for i, opt in enumerate(options):
+        print(i+1, opt)
+    print(dotted)
+
+
+
+# 'main', calls the other functions
+def main():
+    lottery_menu()
+    while True:
+        choice = input("\nEnter your choice[1-2]: ")
+        if choice == '1':
+            string = "\n[Play Pick {}]".format(NUMBER_OF_PICKS) + "selected!"
+            dotted = '\n'+ len(string) * "-"
+            
+            print(dotted,
+                  string,
+                  dotted)
+            
+            play_pick_n()
+            break
+
+        elif choice == '2':
+            print ("Thanks for playing!\n")
+            break
+                         
+        print("Error! Invalid input. Press any key to continue...\n")
+        
+if __name__ == '__main__':
+    main()
+
