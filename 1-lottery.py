@@ -14,6 +14,18 @@ MAX_PICK = 9
 WINNINGS = 100
 OFFSETT = 4
 
+# 'checker', compares userNums and winningNums to see if they have won or lost
+def checker(userNums, winningNums):
+    if userNums == winningNums:
+        print ("\nCongratulations! You Win ${}!".format(WINNINGS),
+               "\nYour numbers: ", userNums,
+               "\nThe winning lottery numbers were: ", winningNums, "\n")
+    else:
+
+        print ("\nSorry, you lose...",
+               "\nYour numbers: ", userNums,
+               "\nThe winning lottery numbers were: ", winningNums, "\n")
+               
 # 'get_user_nums', gets user numbers and puts into a sorted list    
 def get_user_nums():
     userNums = []
