@@ -14,6 +14,9 @@ MAX_PICK = 9
 WINNINGS = 100
 OFFSETT = 4
 
+# 'get_winning_nums', creates a sorted list with random nums ranging from 0-9 with a range of 3 values
+def get_winning_nums():
+    return sorted(random.sample(range(MIN_PICK, MAX_PICK), NUMBER_OF_PICKS)) 
 
 # 'menu', creates the main menu to choose game or exit program
 def lottery_menu():
@@ -26,7 +29,10 @@ def lottery_menu():
         print(i+1, opt)
     print(dotted)
 
-
+def play_pick_n():
+    userNums = get_user_nums()
+    winningNums = get_winning_nums() 
+    checker(userNums, winningNums)
 
 # 'main', calls the other functions
 def main():
